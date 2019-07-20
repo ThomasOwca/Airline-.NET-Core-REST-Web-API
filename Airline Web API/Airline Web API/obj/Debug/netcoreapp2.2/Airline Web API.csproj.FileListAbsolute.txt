@@ -1,0 +1,14 @@
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\bin\Debug\netcoreapp2.2\Airline Web API.deps.json
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\bin\Debug\netcoreapp2.2\Airline Web API.runtimeconfig.json
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\bin\Debug\netcoreapp2.2\Airline Web API.runtimeconfig.dev.json
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\bin\Debug\netcoreapp2.2\Airline Web API.dll
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.csprojAssemblyReference.cache
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.RazorAssemblyInfo.cache
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.RazorAssemblyInfo.cs
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.AssemblyInfoInputs.cache
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.AssemblyInfo.cs
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.RazorTargetAssemblyInfo.cache
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\bin\Debug\netcoreapp2.2\Airline Web API.pdb
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.dll
+C:\Users\Thomas\Documents\Computer Science\ASP.NET Projects\.NET Core\Airline-.NET-Core-REST-Web-API\Airline Web API\Airline Web API\obj\Debug\netcoreapp2.2\Airline Web API.pdb
