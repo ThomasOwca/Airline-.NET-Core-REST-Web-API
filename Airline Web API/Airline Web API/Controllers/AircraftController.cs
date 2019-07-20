@@ -24,7 +24,7 @@ namespace Airline_Web_API.Controllers
         [HttpGet]
         public IActionResult GetAllAircraft()
         {
-            GetAllAircraftResponse response = new GetAllAircraftResponse();
+            var response = new GetAllAircraftResponse();
 
             try
             {
@@ -32,11 +32,11 @@ namespace Airline_Web_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.ToString());
+                return BadRequest(ex.Message);
             }
 
             if (response.IsSuccessful)
-                return Ok(response.Aircrafts);
+                return Ok(response.Aircraft);
             else
                 return BadRequest(response.Message);
         }
@@ -45,7 +45,7 @@ namespace Airline_Web_API.Controllers
         [HttpGet("{aircraftId:int}")]
         public IActionResult GetAircraft([FromRoute] int aircraftId)
         {
-            GetAircraftResponse response = new GetAircraftResponse();
+            var response = new GetAircraftResponse();
 
             try
             {
@@ -53,7 +53,7 @@ namespace Airline_Web_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.ToString());
+                return BadRequest(ex.Message);
             }
 
             if (response.IsSuccessful)

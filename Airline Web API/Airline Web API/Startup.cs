@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Airline_Web_API.Data;
 using Airline_Web_API.Services.AircraftService;
+using Airline_Web_API.Services.FleetService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,9 +33,10 @@ namespace Airline_Web_API
 
             // This is dependecy injection.
             services.AddScoped<IAircraft, AircraftService>();
+            services.AddScoped<IFleet, FleetService>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+               options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

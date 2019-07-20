@@ -8,6 +8,6 @@ namespace Airline_Web_API.Models.ServiceModels
 {
     public class GetAllAircraftResponse : BaseServiceResponse
     {
-        public List<Aircraft> Aircrafts { get; set; }
+        public List<Aircraft> Aircraft { get; set; }
     }
 }

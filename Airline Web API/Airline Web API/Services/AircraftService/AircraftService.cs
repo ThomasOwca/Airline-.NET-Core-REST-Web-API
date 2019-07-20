@@ -60,12 +60,11 @@ namespace Airline_Web_API.Services.AircraftService
 
             try
             {
-                // Query all aircraft in the Aircraft table.
-                var aircrafts = _context.Aircraft.ToList();
+                var aircraft = _context.Aircraft.ToList();
 
-                if (aircrafts != null || aircrafts.Count != 0)
+                if (aircraft != null || aircraft.Count != 0)
                 {
-                    response.Aircrafts = aircrafts;
+                    response.Aircraft = aircraft;
                     response.IsSuccessful = true;
                     response.Message = "Aircraft were found.";
                 }
