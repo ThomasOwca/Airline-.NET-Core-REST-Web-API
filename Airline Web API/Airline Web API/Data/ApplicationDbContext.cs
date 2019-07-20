@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Airline_Web_API.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Airline_Web_API.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        //public DbSet<T> Name { get; set; }
+        public DbSet<Aircraft> Aircraft { get; set; }
+        public DbSet<Fleet> Fleets { get; set; }
+        public DbSet<AircraftStatus> AircraftStatuses { get; set; }
     }
 }
