@@ -34,6 +34,7 @@ namespace Airline_Web_API.Services.FleetService
                     .FirstOrDefault(plane => plane.Id == request.FleetInventoryId);
 
                 _context.Remove(aircraft);
+                _context.SaveChanges();
 
                 response.IsSuccessful = true;
                 response.Message = "Aircraft removed from fleet successfully.";
@@ -169,11 +170,11 @@ namespace Airline_Web_API.Services.FleetService
                 IsSuccessful = false,
                 Message = "",
             };
-
-            /*
+            
             try
             {
                 _context.Update(request.Aircraft);
+                _context.Update(request.Status);
                 response.IsSuccessful = true;
                 response.Message = "Aircraft added to fleet inventory.";
 
@@ -183,9 +184,10 @@ namespace Airline_Web_API.Services.FleetService
                 response.IsSuccessful = false;
                 response.Message = ex.Message;
             }
-            */
+            
 
             return response;
         }
+
     }
 }
