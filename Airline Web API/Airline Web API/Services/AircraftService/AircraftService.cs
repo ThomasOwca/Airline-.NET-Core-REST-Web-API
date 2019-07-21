@@ -85,8 +85,27 @@ namespace Airline_Web_API.Services.AircraftService
 
         public PostAircraftResponse PostAircraft(PostAircraftRequest request)
         {
-            // Needs to actually use business logic here.
-            return new PostAircraftResponse();
+            var response = new PostAircraftResponse
+            {
+                IsSuccessful = false,
+                Message = ""
+            };
+
+            try
+            {
+                _context.Add(request.NewAircraft);
+                _context.SaveChanges();
+
+                response.IsSuccessful = true;
+                response.Message = "Aircraft successfully added to database.";
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccessful = false;
+                response.Message = ex.ToString();
+            }
+
+            return response;
         }
     }
 }

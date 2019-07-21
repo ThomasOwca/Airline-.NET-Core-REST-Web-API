@@ -13,11 +13,11 @@ namespace Airline_Web_API.Controllers
     [ApiController]
     public class AircraftController : Controller
     {
-        private readonly IAircraft _service;
+        private readonly IAircraft _aircraftService;
 
-        public AircraftController(IAircraft service)
+        public AircraftController(IAircraft aircraftService)
         {
-            _service = service;
+            _aircraftService = aircraftService;
         }
 
         // GET: api/aircraft
@@ -28,11 +28,11 @@ namespace Airline_Web_API.Controllers
 
             try
             {
-                response = _service.GetAllAircraft(new GetAllAircraftRequest());
+                response = _aircraftService.GetAllAircraft(new GetAllAircraftRequest());
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.ToString());
             }
 
             if (response.IsSuccessful)
@@ -49,24 +49,38 @@ namespace Airline_Web_API.Controllers
 
             try
             {
-                response = _service.GetAircraft(new GetAircraftRequest { AircraftId = aircraftId });
+                response = _aircraftService.GetAircraft(new GetAircraftRequest { AircraftId = aircraftId });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.ToString());
             }
 
             if (response.IsSuccessful)
                 return Ok(response.Aircraft);
             else
-                return BadRequest(response.Message);
+                return BadRequest(response.ToString());
         }
 
         // POST: api/aircraft
         [HttpPost]
         public IActionResult CreateAircraft([FromBody] Aircraft aircraft)
         {
-            return Ok();
+            var response = new PostAircraftResponse();
+
+            try
+            {
+                response = _aircraftService.PostAircraft(new PostAircraftRequest { NewAircraft = aircraft });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+
+            if (response.IsSuccessful)
+                return Ok(response.Message);
+            else
+                return BadRequest(response.Message);
         }
 
         // PUT: api/aircraft/update
