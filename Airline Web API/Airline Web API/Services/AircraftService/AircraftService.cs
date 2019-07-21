@@ -133,5 +133,38 @@ namespace Airline_Web_API.Services.AircraftService
 
             return response;
         }
+
+        public DeleteAircraftResponse DeleteAircraft(DeleteAircraftRequest request)
+        {
+            var response = new DeleteAircraftResponse
+            {
+                IsSuccessful = false,
+                Message = ""
+            };
+
+            try
+            {
+                var aircraftToDelete = _context.Aircraft.FirstOrDefault(aircraft => aircraft.Id == request.AircraftId);
+                
+                if (aircraftToDelete != null)
+                {
+                    _context.Remove(aircraftToDelete);
+                    _context.SaveChanges();
+
+                    response.IsSuccessful = true;
+                    response.Message = "Aircraft successfully removed.";
+                }
+                else
+                {
+                    response.Message = "Aircraft was not removed.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.ToString();
+            }
+
+            return response;
+        }
     }
 }

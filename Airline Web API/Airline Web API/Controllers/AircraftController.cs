@@ -109,7 +109,21 @@ namespace Airline_Web_API.Controllers
         [HttpDelete("{aircraftId:int}")]
         public IActionResult DeleteAircraft([FromRoute] int aircraftId)
         {
-            return Ok();
+            var response = new DeleteAircraftResponse();
+
+            try
+            {
+                response = _aircraftService.DeleteAircraft(new DeleteAircraftRequest { AircraftId = aircraftId });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+
+            if (response.IsSuccessful)
+                return Ok(response.Message);
+            else
+                return BadRequest(response.Message);
         }
     }
 }

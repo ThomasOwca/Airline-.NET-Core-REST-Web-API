@@ -13,5 +13,6 @@ namespace Airline_Web_API.Services.AircraftService
         GetAircraftResponse GetAircraft(GetAircraftRequest request);
         PostAircraftResponse PostAircraft(PostAircraftRequest request);
         PutAircraftResponse PutAircraft(PutAircraftRequest request);
+        DeleteAircraftResponse DeleteAircraft(DeleteAircraftRequest request);
     }
 }
