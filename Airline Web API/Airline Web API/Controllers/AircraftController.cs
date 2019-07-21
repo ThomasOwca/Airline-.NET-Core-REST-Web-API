@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Airline_Web_API.Models.Entities;
 using Airline_Web_API.Models.ServiceModels;
+using Airline_Web_API.Models.ServiceModels.AircraftServiceModels;
 using Airline_Web_API.Services.AircraftService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -87,7 +88,21 @@ namespace Airline_Web_API.Controllers
         [HttpPut("update")]
         public IActionResult UpdateAircraft([FromBody] Aircraft aircraft)
         {
-            return Ok();
+            var response = new PutAircraftResponse();
+            
+            try
+            {
+                response = _aircraftService.PutAircraft(new PutAircraftRequest { UpdatedAircraft = aircraft });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+
+            if (response.IsSuccessful)
+                return Ok(response.Message);
+            else
+                return BadRequest(response.Message);  
         }
 
         // DELETE: api/aircraft/{aircraftId}

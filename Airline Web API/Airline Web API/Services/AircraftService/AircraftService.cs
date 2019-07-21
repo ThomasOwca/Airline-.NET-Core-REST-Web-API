@@ -1,5 +1,6 @@
 ﻿using Airline_Web_API.Data;
 using Airline_Web_API.Models.ServiceModels;
+using Airline_Web_API.Models.ServiceModels.AircraftServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,6 +99,31 @@ namespace Airline_Web_API.Services.AircraftService
 
                 response.IsSuccessful = true;
                 response.Message = "Aircraft successfully added to database.";
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccessful = false;
+                response.Message = ex.ToString();
+            }
+
+            return response;
+        }
+
+        public PutAircraftResponse PutAircraft(PutAircraftRequest request)
+        {
+            var response = new PutAircraftResponse
+            {
+                IsSuccessful = false,
+                Message = ""
+            };
+
+            try
+            {
+                _context.Update(request.UpdatedAircraft);
+                _context.SaveChanges();
+
+                response.IsSuccessful = true;
+                response.Message = "Aircraft successfull updated in the database.";
             }
             catch (Exception ex)
             {
