@@ -162,7 +162,6 @@ namespace Airline_Web_API.Services.FleetService
             return response;
         }
 
-        // Needs to be fixed. Logic is off.
         public PutAircraftInFleetResponse PutAircraftInFleet(PutAircraftInFleetRequest request)
         {
             var response = new PutAircraftInFleetResponse
