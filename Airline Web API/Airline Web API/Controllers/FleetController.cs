@@ -111,7 +111,7 @@ namespace Airline_Web_API.Controllers
 
             try
             {
-                response = _fleetService.PutAircraftInFleet(new PutAircraftInFleetRequest { Aircraft = fleet.Aircraft, Status = fleet.Status, PurchaseDate = fleet.PurchaseDate });
+                response = _fleetService.PutAircraftInFleet(new PutAircraftInFleetRequest { Aircraft = fleet.Aircraft, Status = fleet.Status, PurchaseDate = fleet.PurchaseDate, Id = fleet.Id });
             }
             catch (Exception ex)
             {
