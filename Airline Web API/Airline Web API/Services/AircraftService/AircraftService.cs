@@ -123,7 +123,7 @@ namespace Airline_Web_API.Services.AircraftService
                 _context.SaveChanges();
 
                 response.IsSuccessful = true;
-                response.Message = "Aircraft successfull updated in the database.";
+                response.Message = "Aircraft successfully updated in the database.";
             }
             catch (Exception ex)
             {

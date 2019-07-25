@@ -175,8 +175,11 @@ namespace Airline_Web_API.Services.FleetService
             {
                 _context.Update(request.Aircraft);
                 _context.Update(request.Status);
+                _context.Update(request.PurchaseDate);
+                _context.SaveChanges();
+
                 response.IsSuccessful = true;
-                response.Message = "Aircraft added to fleet inventory.";
+                response.Message = "Aircraft updated fleet inventory.";
 
             }
             catch (Exception ex)

@@ -105,13 +105,13 @@ namespace Airline_Web_API.Controllers
 
         // PUT: api/aircraft/update
         [HttpPut("update")]
-        public IActionResult PutAircraftInFleet([FromBody] Aircraft aircraft, AircraftStatus status)
+        public IActionResult PutAircraftInFleet([FromBody] Fleet fleet)
         {
             var response = new PutAircraftInFleetResponse();
 
             try
             {
-                response = _fleetService.PutAircraftInFleet(new PutAircraftInFleetRequest { Aircraft = aircraft, Status = status });
+                response = _fleetService.PutAircraftInFleet(new PutAircraftInFleetRequest { Aircraft = fleet.Aircraft, Status = fleet.Status, PurchaseDate = fleet.PurchaseDate });
             }
             catch (Exception ex)
             {

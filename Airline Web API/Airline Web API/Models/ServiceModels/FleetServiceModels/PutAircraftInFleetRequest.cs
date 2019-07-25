@@ -10,5 +10,6 @@ namespace Airline_Web_API.Models.ServiceModels.FleetServiceModels
     {
         public Aircraft Aircraft { get; set; }
         public AircraftStatus Status { get; set; }
+        public DateTime PurchaseDate { get; set; } = DateTime.Now;
     }
 }
