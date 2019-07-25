@@ -34,6 +34,7 @@ namespace Airline_Web_API.Services.FleetService
                     .FirstOrDefault(plane => plane.Id == request.FleetInventoryId);
 
                 _context.Remove(aircraft);
+                _context.SaveChanges();
 
                 response.IsSuccessful = true;
                 response.Message = "Aircraft removed from fleet successfully.";
@@ -169,13 +170,48 @@ namespace Airline_Web_API.Services.FleetService
                 IsSuccessful = false,
                 Message = "",
             };
-
-            /*
+            
             try
             {
-                _context.Update(request.Aircraft);
+                Fleet fleetItem;
+
+                if (request.Id > 0)
+                {
+                    fleetItem = _context.Fleet
+                    .Include(item => item.Aircraft)
+                    .Include(item => item.Status)
+                    .FirstOrDefault(item => item.Id == request.Id);
+                }
+                else
+                {
+                    fleetItem = new Fleet();
+                }
+                
+                //_context.Update(request.Id);
+
+                // Might need additional logic if the aircraft is existing type that already exists.
+                // Same for the status.
+                if (request.Aircraft.Id > 0)
+                {
+                    request.Aircraft = _context.Aircraft.FirstOrDefault(aircraft => aircraft.Id == request.Aircraft.Id);
+                }
+
+                if (request.Status.Id > 0)
+                {
+                    request.Status = _context.AircraftStatuses.FirstOrDefault(status => status.Id == request.Status.Id);
+                }
+
+                fleetItem.Aircraft = request.Aircraft;
+                fleetItem.Status = request.Status;
+                fleetItem.PurchaseDate = DateTime.Now;
+
+                // This should probably work, unless one of the Aircraft or Status entities are a new
+                // type that don't already exist.
+                _context.Update(fleetItem);
+                _context.SaveChanges();
+
                 response.IsSuccessful = true;
-                response.Message = "Aircraft added to fleet inventory.";
+                response.Message = "Aircraft updated in fleet inventory.";
 
             }
             catch (Exception ex)
@@ -183,9 +219,10 @@ namespace Airline_Web_API.Services.FleetService
                 response.IsSuccessful = false;
                 response.Message = ex.Message;
             }
-            */
+            
 
             return response;
         }
+
     }
 }

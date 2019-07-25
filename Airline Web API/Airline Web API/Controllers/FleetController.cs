@@ -43,7 +43,7 @@ namespace Airline_Web_API.Controllers
 
         // GET: api/Fleet/{aircraftId}
         [HttpGet("{aircraftId:int}")]
-        public IActionResult GetFleetByAircraft([FromRoute] int aircraftId) 
+        public IActionResult GetFleetByAircraft([FromRoute] int aircraftId)
         {
             var response = new GetFleetByAircraftIdResponse();
 
@@ -83,5 +83,45 @@ namespace Airline_Web_API.Controllers
                 return BadRequest(response.Message);
         }
 
+        [HttpDelete("{fleetItemId:int}")]
+        public IActionResult DeleteAircraftFromFleet([FromRoute] int fleetItemId)
+        {
+            var response = new DeleteAircraftInFleetResponse();
+
+            try
+            {
+                response = _fleetService.DeleteAircraftInFleet (new DeleteAircraftInFleetRequest { FleetInventoryId = fleetItemId });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            if (response.IsSuccessful)
+                return Ok(response.Message);
+            else
+                return BadRequest(response.Message);
+        }
+
+        // PUT: api/aircraft/update
+        [HttpPut("update")]
+        public IActionResult PutAircraftInFleet([FromBody] Fleet fleet)
+        {
+            var response = new PutAircraftInFleetResponse();
+
+            try
+            {
+                response = _fleetService.PutAircraftInFleet(new PutAircraftInFleetRequest { Aircraft = fleet.Aircraft, Status = fleet.Status, PurchaseDate = fleet.PurchaseDate, Id = fleet.Id });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+
+            if (response.IsSuccessful)
+                return Ok(response.Message);
+            else
+                return BadRequest(response.Message);
+        }
     }
 }
