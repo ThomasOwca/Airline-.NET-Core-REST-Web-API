@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Airline_Web_API.Data;
 using Airline_Web_API.Services.AircraftService;
 using Airline_Web_API.Services.FleetService;
+using Airline_Web_API.Services.PassengerService;
+using Airline_Web_API.Services.AirportService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +38,8 @@ namespace Airline_Web_API
             // This is dependecy injection.
             services.AddScoped<IAircraft, AircraftService>();
             services.AddScoped<IFleet, FleetService>();
+            services.AddScoped<IPassenger, PassengerService>();
+            services.AddScoped<IAirport, AirportService>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));

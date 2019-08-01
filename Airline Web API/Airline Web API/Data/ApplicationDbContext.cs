@@ -14,5 +14,7 @@ namespace Airline_Web_API.Data
         public DbSet<Aircraft> Aircraft { get; set; }
         public DbSet<Fleet> Fleet { get; set; }
         public DbSet<AircraftStatus> AircraftStatuses { get; set; }
+        public DbSet<Passenger> Passengers { get; set; }
+        public DbSet<Airport> Airports { get; set; }
     }
 }
