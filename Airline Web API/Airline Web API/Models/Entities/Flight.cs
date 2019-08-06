@@ -11,8 +11,9 @@ namespace Airline_Web_API.Models.Entities
     {
         [Key]
         public int Id { get; set; }
+        public int FlightId { get; set; }
         [ForeignKey("AircraftId")]
-        public Aircraft Aircraft { get; set; }
+        public Fleet Aircraft { get; set; }
         [ForeignKey("DepartureAirportId")]
         public Airport DepAirport { get; set; }
         [ForeignKey("DestinationAirportId")]

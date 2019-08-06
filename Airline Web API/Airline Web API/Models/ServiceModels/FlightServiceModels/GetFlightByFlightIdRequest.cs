@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Airline_Web_API.Models.ServiceModels.FlightServiceModels
 {
-    public class GetFlightByPlaneIdRequest : BaseServiceRequest
+    public class GetFlightByFlightIdRequest : BaseServiceRequest
     {
         public int FlightId { get; set; }
     }
